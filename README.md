@@ -23,11 +23,19 @@ scripts\pip.exe install pyserial
 
 Open rtc_set.ino in Arduino IDE and upload it
 
-Change serial port in rtc_set.py
+Close serial monitor in Arduino IDE
 
-## Screenshot
+Change serial port in rtc_set.py if needed
+
+Run script
+
+## Screenshots
  
-![Screenshot](rtc_set_scr1.png)
+Running Python script:
+![Screenshot 1](rtc_set_scr1.png)
+
+Serial console, it's there for testing and verification 
+![Screenshot 2](rtc_set_scr2.png)
 
 
   
