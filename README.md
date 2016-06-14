@@ -27,7 +27,7 @@ Change serial port in rtc_set.py
 
 ## Screenshot
  
-@image html rtc_set_scr1.png
+![Screenshot](rtc_set_scr1.png)
 
 
   
