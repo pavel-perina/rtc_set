@@ -10,6 +10,10 @@ and I don't want to care about daylight saving time.
 
 It clears RTC alarms and resets interrupt as well.
 
+Anyways, don't expect that 1$ RTC from China are real DS323X, at least they are far from this datasheet specifications:
+* Accuracy ±2ppm from 0°C to +40°C
+* Accuracy ±3.5ppm from -40°C to +85°C
+
 ## Installation / Dependencies
 
 Program needs Python with PySerial library installed. Installing PySerial is easy.
