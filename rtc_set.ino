@@ -1,3 +1,8 @@
+/// \file   rtc3231_02_set_time
+/// \brief  Set time to RTC3231, works together with Python script
+/// \author Pavel Perina
+/// \date   May 2016
+///
 #include <Wire.h>
 
 #define DS3231_I2C_ADDRESS 0x68
@@ -75,8 +80,19 @@ static void rtcSetTime(
   Wire.endTransmission();  
 
   Wire.beginTransmission(DS3231_I2C_ADDRESS);
-  Wire.endTransmission();  
-  
+  Wire.endTransmission();
+}
+
+static bool rtcOk()
+{
+  Wire.beginTransmission(DS3231_I2C_ADDRESS);
+  uint8_t code = Wire.endTransmission();
+  if (code != 0) {
+    Serial.println("RTC not found :-(");
+    return false;
+  }
+  Serial.println("RTC found :-)");
+  return true;
 }
 
 
@@ -122,13 +138,17 @@ char * rtcDateTimeStr()
   return datetime;
 }
 
+
 void setup() 
 {
   Serial.begin(9600);
   while (!Serial)
     ;
   Wire.begin();
+
+
   Serial.println("Clearing interrupt and disabling alarm ...");
+  rtcOk();
   rtcDisableAlarm();
   Serial.print ("Current time is : ");
   Serial.println(rtcDateTimeStr());    

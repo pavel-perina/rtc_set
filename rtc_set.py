@@ -9,8 +9,8 @@ print("Sleeping for five seconds ...")
 time.sleep(5)                               # Sleep cause Arduino is likely reseting now
 utc = datetime.now(timezone.utc)
 str = dow[utc.isoweekday()%7] + ' ' + utc.strftime ('%Y-%m-%d %H:%M:%S') + '\n'
+print("Writing time; ", str);
 ser.write(str.encode('utf-8'))              # Convert string to utf-8 (should be plain ascii)
 ser.flush()
-print(str)
 time.sleep(2)
 
